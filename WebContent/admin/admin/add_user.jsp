@@ -73,13 +73,13 @@ $(document).ready(function(){
               }
               else
               {%>
-            		<span class="msg" ><i class="icon-ok-sign"></i>  Record Successfully Added</span>
+            		<span class="msg" ><i class="icon-ok-sign"></i>Thanks  Record Successfully Added</span>
             	  <% 
               }
               %>
                 
              <div class="form-row control-group row-fluid">
-                  <label class="control-label span3">Password*</label>
+                  <label class="control-label span3">Password*(the field is required)</label>
                   <div class="controls span7 ">
                     <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-lock"></i></span>
                       <input class="row-fluid" type="password"  name="user_password" id="password" placeholder="min 5 characters">
