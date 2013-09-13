@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="resources/js/jquery-ui-1.8.23.custom.min.js|resources/js/jquery.js|resources/js/plugins/datatables/js/jquery.js|resources/js/plugins/datatables/src/core/core.constructor.js|resources/js/plugins/elfinder2.0/js/elfinder.min.js|resources/js/plugins/flot/jquery.flot.js|resources/js/plugins/justGage.1.0.1/resources/js/raphael.2.1.0.min.js|user_resources/assets/js/jquery-1.8.3.min.js" kind="src" path="WebContent"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
+		<attributes>
+			<attribute name="hide" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.baseBrowserLibrary"/>
+	<classpathentry kind="output" path=""/>
+</classpath>

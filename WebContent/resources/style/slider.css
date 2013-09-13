@@ -1,0 +1,37 @@
+/* Slider
+----------------------------------*/
+
+.ui-slider { position: relative; text-align: left;margin-top:3%;margin-left:3%;}
+.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 3%; height: 145%; cursor: default; }
+.ui-slider .ui-slider-range { position: absolute;
+z-index: 1;
+font-size: 1%;
+display: block;
+border: 0;
+background: #EBFAFF;
+}
+
+ 
+.ui-widget-content { background: #8DC6FF; width:46%; }//change color and width
+
+.slide .ui-slider-range {
+    background: #D6F5FF !important;
+}
+
+.ui-widget-content .ui-state-default { background:#98d8f0; width:20px;}// change button color
+
+
+.text
+{
+	border: 0;
+	text-align:right;
+	color: #29A3CC;
+	font-weight: bold;
+	position:relative;
+	text-shadow:0 1px 1px #000;
+	padding:0.5%;
+}
+
+
+
+

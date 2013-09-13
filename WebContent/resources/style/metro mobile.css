@@ -1,0 +1,61 @@
+body {
+    overflow: auto;
+    cursor: default;
+}
+#widget_scroll_container {
+    margin: 0px;
+    position: relative;
+    width: auto;
+    left: 0px !important;
+    top: 0px;
+}
+div.widget_container,
+div.widget_container.half {
+    overflow: hidden !important;
+    width: auto;
+    margin: 0px;
+    float: none;
+    padding: 0px;
+}
+div.widget {
+    float: none;
+    width: auto !important;
+    height: auto !important;
+    margin: 4px;
+}
+div.widget:hover {
+    border: none;
+    -webkit-transform: scale(1) !important;
+       -moz-transform: scale(1) !important;
+        -ms-transform: scale(1) !important;
+         -o-transform: scale(1) !important;
+            transform: scale(1) !important;
+}
+div.widget:last-child {
+    margin-bottom: 0px;
+}
+div.widget div.main {
+    width: 80px;
+    height: 80px;
+}
+div.widget div.widget_content,
+div.widget div.main {
+    overflow: visible;
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    position: static;
+}
+div.widget div.main > span {
+    top: 0px;
+    left: 80px;
+    bottom: 0px;
+    right: 0px;
+    padding: 5px 5px 5px 20px;
+    line-height: 70px;
+    background-color: #FFFFFF;
+    color: #000000;
+    text-shadow: none;
+}

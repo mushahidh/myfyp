@@ -1,0 +1,714 @@
+* {
+    outline: none;
+}
+html {
+    height: 100%;
+}
+body {
+    font-family: "Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,"sans-serif";
+    margin: 0px;
+    height: 100%;
+    font-size: 100%;
+    cursor: move;
+    overflow-x: hidden;
+    background: url('../images/wallpaper/1.jpg') no-repeat scroll 50% 50% #000000;
+    background-attachment: fixed;
+    background-size: cover;
+}
+body.open {
+    position: relative;
+    left: 300px;
+    background-position: 300px 0px;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+img {
+    border: none;
+}
+textarea, input, select {
+    font-family: "Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,"sans-serif";
+}
+.hidden {
+    display: none;
+}
+.clear {
+    clear: both;
+}
+.transition_all {
+    -webkit-transition: all 0.4s;
+       -moz-transition: all 0.4s;
+         -o-transition: all 0.4s;
+        -ms-transition: all 0.4s;
+            transition: all 0.4s;
+}
+.text_shadow {
+    color: #222222;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
+}
+.spacer_20 {
+    height: 20px;
+    clear: both;
+}
+#settings {
+    position: fixed;
+    z-index: 25;
+    cursor: pointer;
+    top: 10px;
+    left: 0px;
+    width: 36px;
+    height: 36px;
+    margin-left: -58px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    background-image: url('../images/metro/settings.png');
+    -webkit-transition: margin 0.5s linear, -webkit-transform 0.5s linear;
+       -moz-transition: margin 0.5s linear, -moz-transform 0.5s linear;
+        -ms-transition: margin 0.5s linear, -ms-transform 0.5s linear;
+         -o-transition: margin 0.5s linear, -o-transform 0.5s linear;
+            transition: margin 0.5s linear, transform 0.5s linear;
+}
+.loaded #settings {
+    margin-left: 10px;
+    -webkit-transform: rotateZ(360deg);
+       -moz-transform: rotateZ(360deg);
+        -ms-transform: rotateZ(360deg);
+         -o-transform: rotateZ(360deg);
+            transform: rotateZ(360deg);
+}
+body.open #settings {
+    background-image: url('../images/metro/cancel.png');
+    left: 300px;
+    top: 10px;
+    z-index: 100;
+}
+header {
+    position: fixed;
+    overflow: auto;
+    z-index: 50;
+    width: 300px;
+    left: -300px;
+    top: 0px;
+    bottom: 0px;
+    cursor: default;
+    background-color: #BE213E;
+    background-image: none;
+    -webkit-box-shadow: 0px 0px 5px #000000;
+       -moz-box-shadow: 0px 0px 5px #000000;
+        -ms-box-shadow: 0px 0px 5px #000000;
+         -o-box-shadow: 0px 0px 5px #000000;
+            box-shadow: 0px 0px 5px #000000;
+    -webkit-overflow-scrolling: touch;
+       -moz-overflow-scrolling: touch;
+            overflow-scrolling: touch;
+}
+body.open header {
+    left: 0px;
+}
+#theme_picker,
+#wallpaper_picker {
+    margin: 10px 0px 10px 0px;
+    overflow: hidden;
+}
+#theme_picker > div,
+#wallpaper_picker > div {
+    position: relative;
+    overflow: hidden;
+    height: 36px;
+    cursor: pointer;
+}
+#theme_picker > div:hover,
+#theme_picker > div.selected,
+#wallpaper_picker > div:hover,
+#wallpaper_picker > div.selected {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#theme_picker div.square,
+#wallpaper_picker div.square {
+    width: 40px;
+    height: 20px;
+    margin: 7px 10px 0px 20px;
+    border: 1px solid #CCCCCC;
+    cursor: pointer;
+    background-size: cover;
+    -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+       -moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        -ms-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+         -o-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+#theme_picker > span,
+#wallpaper_picker > span {
+    display: block;
+    color: #333333;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 1.2em;
+    -webkit-text-shadow: 0 1px 1px #D83855;
+       -moz-text-shadow: 0 1px 1px #D83855;
+        -ms-text-shadow: 0 1px 1px #D83855;
+         -o-text-shadow: 0 1px 1px #D83855;
+            text-shadow: 0 1px 1px #D83855;
+}
+#theme_picker label,
+#wallpaper_picker label {
+    position: absolute;
+    color: #FFFFFF;
+    left: 70px;
+    top: 0px;
+    height: 36px;
+    line-height: 36px;
+    text-shadow: 0px 1px 1px #000000;
+    text-transform: uppercase;
+    font-size: 0.8em;
+}
+#wallpaper_picker div.w1 {
+    background-image: url('../images/wallpaper/1.jpg');
+}
+#wallpaper_picker div.w2 {
+    background-image: url('../images/wallpaper/2.jpg');
+}
+#wallpaper_picker div.w3 {
+    background-image: url('../images/wallpaper/3.jpg');
+} 
+#widget_scroll_container {
+    overflow: hidden;
+    margin: 0px auto;
+    position: absolute;
+    top: 8%;
+    left: 90px;
+}
+#widget_preview {
+    top: 50%;
+    right: 50%;
+    left: 50%;
+    bottom: 50%;
+    position: fixed;
+    overflow: hidden;
+    color: #FFFFFF;
+    z-index: 200;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    cursor: default;
+}
+#widget_preview a  {
+    color: #FFFFFF;
+}
+#widget_preview.open {
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+#widget_preview.loading {
+    background: url('../images/page_loader.gif') no-repeat scroll 50% 50%;
+}
+#widget_preview > div.dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #FFFFFF;
+    right: 100%;
+}
+#widget_preview > div.dot.open {
+    right: 0%;
+}
+#widget_sidebar {
+    position: absolute;
+    display: table;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    right: -66px;
+    z-index: 500;
+    width: 76px;
+    -webkit-transition: all 0.2s linear;
+       -moz-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+         -0-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+}
+#widget_sidebar:hover {
+    right: 0px;
+    background-color: #111111;
+}
+#widget_sidebar > div {
+    display: table-cell;
+    vertical-align: middle;
+}
+#widget_sidebar > div > div {
+    background-repeat: no-repeat;
+    background-position: 50% 10px;
+    height: 84px;
+    cursor: pointer;
+    position: relative;
+}
+#widget_sidebar > div > div:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+#widget_sidebar > div > div.cancel {
+    background-image: url('../images/metro/cancel.png');
+}
+#widget_sidebar > div > div.download {
+    background-image: url('../images/metro/save.png');
+}
+#widget_sidebar > div > div.back {
+    background-image: url('../images/metro/back.png');
+}
+#widget_sidebar > div > div.next {
+    background-image: url('../images/metro/next.png');
+}
+#widget_sidebar > div > div.refresh {
+    background-image: url('../images/metro/refresh.png');
+}
+#widget_sidebar > div > div > span {
+    font-size: 0.7em;
+    text-align: center;
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 10px;
+}
+#widget_preview_content {
+    overflow: auto;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    font-size: 0.9em;
+    -webkit-overflow-scrolling: touch;
+       -moz-overflow-scrolling: touch;
+            overflow-scrolling: touch;
+}
+div.page_content {
+    padding: 16px;
+}
+div.widget_container {
+    position: relative;
+    margin-right: 50px; /* when this value is changed, make sure its also updated in ui class ($container_margin) */
+    float: left;
+    padding: 10px;  /* when this value is changed, make sure its also updated in ui class ($container_padding) */
+    -webkit-perspective: 1000px;
+       -moz-perspective: 1000px;
+        -ms-perspective: 1000px;
+         -o-perspective: 1000px;
+            perspective: 1000px;
+}
+div.widget_container:last-child {
+    margin-right: 0px;
+}
+div.widget {
+    float: left;
+    position: relative;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin: 5px; /* when this value is changed, make sure its also updated in ui class ($widget_margin) */
+    opacity: 1;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+         -o-user-select: none;
+            user-select: none;
+    -webkit-text-shadow: 0 1px 0 #222222;
+       -moz-text-shadow: 0 1px 0 #222222;
+        -ms-text-shadow: 0 1px 0 #222222;
+         -o-text-shadow: 0 1px 0 #222222;
+            text-shadow: 0 1px 0 #222222;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+       -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+        -ms-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+         -o-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+    -webkit-transform: rotateY(0deg);
+       -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+         -o-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+}
+div.widget.unloaded {
+    opacity: 0;
+    -webkit-transform: rotateY(-90deg);
+       -moz-transform: rotateY(-90deg);
+        -ms-transform: rotateY(-90deg);
+         -o-transform: rotateY(-90deg);
+            transform: rotateY(-90deg);
+}
+div.widget.animation {
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+       -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+        -ms-transition: opacity 0.3s, -ms-transform 0.3s;
+         -o-transition: opacity 0.3s, -o-transform 0.3s;
+            transition: opacity 0.3s, transform 0.3s;
+}
+div.widget:hover {
+    z-index: 10;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    -webkit-transform: scale(1.05);
+       -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+         -o-transform: scale(1.05);
+            transform: scale(1.05);
+}
+div.widget_link {
+    cursor: pointer;
+}
+
+/* when this value is changed, make sure its also updated in ui class ($widget_width_big) */
+div.widget1x1 {
+    width: 90px;
+    height: 90px;
+}
+div.widget2x2 {
+    width: 190px;
+    height: 190px;
+}
+div.widget4x2 {
+    width: 390px;
+    height: 190px;
+}
+div.widget1x1:hover {
+    width: 84px;
+    height: 84px;
+}
+div.widget2x2:hover {
+    width: 184px;
+    height: 184px;
+}
+div.widget4x2:hover {
+    width: 384px;
+    height: 184px;
+}
+div.widget a {
+    color: #FFFFFF;
+}
+div.widget div.main {
+    overflow: hidden;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    height: 100%;
+    top: 100%;
+    -webkit-transition: top 0.4s;
+       -moz-transition: top 0.4s;
+        -ms-transition: top 0.4s;
+         -0-transition: top 0.4s;
+            transition: top 0.4s;
+}
+div.widget div.main {
+    height: 100%;
+    top: 0px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+div.widget div.widget_content {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    overflow: hidden;
+}
+div.widget div.main > span {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/*
+Widget Theme
+*/
+#theme_picker div.default {
+    background: url('../images/colour.png');
+}
+#theme_picker div.blue,
+div.widget_blue,
+div.widget_container.blue div.widget {
+    background-color: #0097AA;
+}
+#theme_picker div.orange,
+div.widget_orange,
+div.widget_container.orange div.widget {
+    background-color: #F29500;
+}
+#theme_picker div.red,
+div.widget_red,
+div.widget_container.red div.widget {
+    background-color: #C23916;
+}
+#theme_picker div.green,
+div.widget_green,
+div.widget_container.green div.widget {
+    background-color: #94C849;
+}
+#theme_picker div.darkgreen,
+div.widget_darkgreen,
+div.widget_container.darkgreen div.widget {
+    background-color: #6FA014;
+}
+#theme_picker div.purple,
+div.widget_purple,
+div.widget_container.purple div.widget {
+    background-color: #91009B;
+}
+#theme_picker div.darkred,
+div.widget_darkred,
+div.widget_container.darkred div.widget {
+    background-color: #BE213E;
+}
+#theme_picker div.darkblue,
+div.widget_darkblue,
+div.widget_container.darkblue div.widget {
+    background-color: #3C7780;
+}
+#theme_picker div.yellow,
+div.widget_yellow,
+div.widget_container.yellow div.widget {
+    background-color: #D9B700;
+}
+#theme_picker div.grey,
+div.widget_grey,
+div.widget_container.grey div.widget {
+    background-color: #4C4C4C;
+}
+
+/*
+Compact Mode
+*/
+@media screen and (max-height: 680px) {
+    /* when this value is changed, make sure its also updated in ui class ($widget_width_small) */
+    div.widget1x1 {
+        width: 65px;
+        height: 65px;
+    }
+    div.widget2x2 {
+        width: 140px;
+        height: 140px;
+    }
+    div.widget4x2 {
+        width: 290px;
+        height: 140px;
+    }
+    div.widget1x1:hover {
+        width: 59px;
+        height: 59px;
+    }
+    div.widget2x2:hover {
+        width: 134px;
+        height: 134px;
+    }
+    div.widget4x2:hover {
+        width: 284px;
+        height: 134px;
+    }
+}
+
+
+/*
+touch
+*/
+body.touch {
+    overflow: auto;
+}
+body.touch div.widget:hover {
+    border: none;
+    -webkit-transform: scale(1);
+       -moz-transform: scale(1);
+        -ms-transform: scale(1);
+         -o-transform: scale(1);
+            transform: scale(1);
+}
+
+/*
+Page Content
+*/
+#widget_preview h1 {
+    position: relative;
+    margin: 0px 0px 20px 0px;
+    padding: 0px;
+    font-size: 1.5em;
+    color: #111111;
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+       -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+        -ms-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+         -o-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+}
+#widget_preview h2 {
+    font-size: 1.4em;
+    margin-left: 20px;
+}
+#widget_preview h3 {
+    font-size: 1.3em;
+    margin-left: 20px;
+}
+#widget_preview h4 {
+    font-size: 1.2em;
+    margin-left: 20px;
+}
+#widget_preview h5 {
+    font-size: 1.1em;
+    margin-left: 20px;
+}
+#widget_preview h6 {
+    font-size: 1em;
+    margin-left: 20px;
+}
+#widget_preview p {
+    padding: 20px;
+    margin: 0px 20px 20px 20px;
+    color: #000000;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+       -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+         -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+#widget_preview p.dark {
+    background-color: #111111;
+    color: #FFFFFF;
+}
+#widget_preview div.grid4 {
+    float: left;
+    width: 22.75%;
+    margin: 0px 1.5%;
+}
+#widget_preview div.grid4:first-child {
+    margin-left: 0px;
+}
+#widget_preview div.grid4:last-child {
+    margin-right: 0px;
+}
+#widget_preview p input[type="text"],
+#widget_preview p input[type="email"],
+#widget_preview p textarea {
+    border: none;
+    padding: 8px 10px;
+    margin-bottom: 20px;
+    background-color: #F9F9F9;
+    resize: none;
+    -webkit-box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.3);
+       -moz-box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.3);
+        -ms-box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.3);
+         -o-box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+         -o-box-sizing: border-box;
+            box-sizing: border-box;
+}
+#widget_preview p input[type="text"],
+#widget_preview p input[type="email"] {
+    width: 50%;
+}
+#widget_preview p textarea {
+    width: 100%;
+    height: 150px;
+}
+#widget_preview p input[type="text"]:focus,
+#widget_preview p input[type="email"]:focus,
+#widget_preview p textarea:focus {
+    -webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.4);
+       -moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.4);
+        -ms-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.4);
+         -o-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.4);
+            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.4);
+}
+#widget_preview p input.invalid,
+#widget_preview p textarea.invalid {
+    background-color: #FFEDED;
+}
+#widget_preview p input[type="button"],
+#widget_preview p input[type="submit"] {
+    border: none;
+    color: #FFFFFF;
+    background-repeat: no-repeat;
+    background-color: #222222;
+    padding: 8px 20px 8px 20px;
+    font-size: 0.8em;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-box-shadow: 1px 1px 6px #999999;
+       -moz-box-shadow: 1px 1px 6px #999999;
+        -ms-box-shadow: 1px 1px 6px #999999;
+         -o-box-shadow: 1px 1px 6px #999999;
+            box-shadow: 1px 1px 6px #999999;
+}
+#widget_preview p input[type="button"]:hover,
+#widget_preview p input[type="submit"]:hover {
+    background-color: #333333;
+}
+#widget_preview p input[type="button"]:active,
+#widget_preview p input[type="submit"]:active {
+    -webkit-box-shadow: 2px 2px 6px #000000 inset;
+       -moz-box-shadow: 2px 2px 6px #000000 inset;
+        -ms-box-shadow: 2px 2px 6px #000000 inset;
+         -o-box-shadow: 2px 2px 6px #000000 inset;
+            box-shadow: 2px 2px 6px #000000 inset;
+}
+#widget_preview ul {
+    padding: 0px 10px;
+    margin: 0px;
+    list-style: none;
+    padding: 20px;
+    margin: 0px 20px 20px 20px;
+    color: #000000;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+       -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+         -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+#widget_preview li {
+    background: url('../images/bullet.png') no-repeat 10px 50%;
+    padding: 10px 10px 10px 45px;
+    background-color: #EEEEEE;
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #DDDDDD;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-transition: all 0.2s linear;
+       -moz-transition: all 0.2s linear;
+        -ms-transition: all 0.2s linear;
+         -o-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+         -o-border-radius: 4px;
+            border-radius: 4px;
+}
+#widget_preview li:first-child {
+    border-top: none;
+}
+#widget_preview li:last-child {
+    border-bottom: none;
+}
+#widget_preview li:hover {
+    background-color: #DDDDDD;
+    background-position: 20px 50%;
+    padding-left: 55px;
+}

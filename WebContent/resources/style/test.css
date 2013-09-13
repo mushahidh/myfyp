@@ -1,0 +1,68 @@
+@CHARSET "windows-1256";
+
+.character
+{
+position:relative;
+margin-top:-4.8%;
+margin-left:155%;
+height:51px;
+width:51px;
+background-color:#ffffff;
+background-image:url(../images/characters/6.png);
+background-position:center;
+background-repeat:repeat-y;
+}
+#crsLine {
+padding-bottom:1px;
+padding-top:1px;
+float:left;
+width:100%;
+border-bottom:dashed #999 1px ;
+}
+
+
+
+
+.slider_value
+{
+border: 0;
+visibility:visible;
+color:#29A3CC;
+font-weight:bold;
+text-align:center;
+text-shadow:0 1px 1px #000;
+font-weight:700;
+padding:20px;
+text-align:justify;
+background-color:#ffffff;
+
+}
+.course_name_text
+{
+
+position:absolute;
+color:#29A3CC;
+
+text-align:left;
+text-shadow:0 1px 1px #000;
+font-weight:70; 
+margin-left:2%;
+margin-top:5px;
+
+}
+.question
+{
+
+position:absolute;
+color:#29A3CC;
+font-family: Arial, Helvetica, sans-serif;
+text-align:left;
+text-shadow:0 1px 1px #000;
+font-weight:300;
+font-size:15px;
+margin-left:3%;
+margin-top:2px;
+
+
+}
+
